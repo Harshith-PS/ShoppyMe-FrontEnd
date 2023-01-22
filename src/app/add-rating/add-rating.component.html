@@ -1,0 +1,64 @@
+<div *ngIf="commonLayout">
+    <app-common-layout></app-common-layout>
+  </div>
+  <div *ngIf="customerLayout">
+    <app-customer-layout></app-customer-layout>
+  </div>
+<div class="myContent">
+    <div class="container">
+        <form #loginForm="ngForm" (ngSubmit)="submitRating(loginForm)" style="background-color:beige;">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <h2>Rating</h2>
+                    <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+                    <div class="form-group">
+                        <div class="col" style="text-align:left">
+                            <label>ProductId</label>
+                        </div>
+                        <div class="col; input-group">
+                            <input  type="text" name="productId" class="form-control qkinput" readonly [ngModel]="productId">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col" style="text-align:left">
+                            <label>ProductName</label>
+                        </div>
+                        <div class="col; input-group">
+                            <input type="text" name="productName" class="form-control qkinput" readonly [ngModel]="productName">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col" style="text-align:left">
+                            <label>Rating</label>
+                        </div>
+                        <div class="col; input-group">
+                            <input name="rating" class="form-control" ngModel required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col" style="text-align:left">
+                            <label>Comments</label>
+                        </div>
+                        <div class="col; input-group">
+                            <input name="comments" class="form-control" ngModel required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group" style="text-align: center;">
+                        <button type="submit" [disabled]="!loginForm.form.valid" class="btn">Submit</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+        <div *ngIf=shwMsg>
+            <h6 class="jumbotron" style="text-align:center;">{{msg}}</h6>
+        </div>
+    </div>
+</div>

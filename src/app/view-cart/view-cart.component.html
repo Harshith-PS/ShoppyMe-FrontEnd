@@ -1,0 +1,37 @@
+<div *ngIf="commonLayout">
+    <app-common-layout></app-common-layout>
+  </div>
+  <div *ngIf="customerLayout">
+    <app-customer-layout></app-customer-layout>
+  </div>
+<div style="text-align:center;">
+    <h1>View Cart Details</h1>
+    <br>
+    <br>
+    <div class="table-responsive">
+        <table class="table" style="border:5px solid rgba(220,230,242,1);" *ngIf="viewCart && viewCart.length">
+            <tr style="background-color:rgba(220,230,242,1); font-size:12pt">
+                
+                <th style="text-align:center">Product Name</th>
+                <th style="text-align:center">Price</th>
+                <th style="text-align:center">Quantity</th>
+                <th style="text-align: center">Total Price</th>
+                <th style="text-align:center" colspan="2">Action</th>
+            </tr>
+            <tr *ngFor="let cart of viewCart" style="background-color:white">
+                
+                <td>{{cart.productName}}</td>
+                <td>{{cart.price}}</td>
+                <td>{{cart.quantity}}</td>
+                <td>{{cart.quantity*cart.price}}</td>
+                <td style="text-align:center"><button title="Update Quantity" (click)="updateCart(cart)" class="btn">Update</button></td>
+                <td style="text-align:center"><button title="Update Quantity" (click)="removeProductFromCart(cart)" class="btn">Delete</button></td>
+                <hr>
+            </tr>
+            
+        </table>
+    </div>
+    <div *ngIf="showMsgDiv">
+        <h4 class="jumbotron" style="text-align:center;">No Purchase made by the customer</h4>
+    </div>
+</div>
