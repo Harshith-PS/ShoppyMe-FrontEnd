@@ -55,3 +55,5 @@ export class AddRatingComponent implements OnInit {
   }
 
 }
+
+// Comments
